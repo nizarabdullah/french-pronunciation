@@ -15,7 +15,8 @@ const words = [
 let currentIndex = 0;
 let recognition;
 let isRecording = false;
-
+let score = 0;
+const scoreEl = document.getElementById('userScore');
 // DOM Elements
 const frenchWordEl = document.getElementById('frenchWord');
 const phoneticEl = document.getElementById('phonetic');
@@ -88,7 +89,12 @@ function displayFeedback(transcript, target) {
     const transcriptDisplay = `<div class="user-transcript">لقد قلت: "${transcript}"</div>`;
     
     feedbackArea.innerHTML = feedbackMsg + transcriptDisplay;
-    
+    // À insérer dans le bloc if (isCorrect)
+score += 10;
+scoreEl.innerText = score;
+// Animation flash pour le score
+scoreEl.parentElement.style.transform = 'scale(1.1)';
+setTimeout(() => scoreEl.parentElement.style.transform = 'scale(1)', 200);
     if (isCorrect) {
         statusText.innerText = "رائع! يمكنك الانتقال للكلمة التالية";
     } else {
