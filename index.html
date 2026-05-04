@@ -1,23 +1,86 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>تعلم نطق اللغة الفرنسية</title>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم نطق اللغة الفرنسية | Apprendre le Français</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Tajawal for Arabic, Inter for French -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>نطق فرنسي</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="level-indicator">
+                <span id="currentLevel">المستوى 1</span>
+            </div>
+        </header>
 
-  <h1>تعلم نطق اللغة الفرنسية 🇫🇷</h1>
+        <!-- Main Content -->
+        <main>
+            <div class="card" id="mainCard">
+                <div class="card-header">
+                    <span class="category-tag">مفردات أساسية</span>
+                </div>
+                
+                <div class="word-display">
+                    <h1 id="frenchWord">Bonjour</h1>
+                    <p id="phonetic">/bɔ̃.ʒuʁ/</p>
+                </div>
 
-  <p id="word">Bonjour</p>
+                <div class="action-buttons">
+                    <button id="listenBtn" class="btn btn-secondary" title="استمع للنطق">
+                        <i class="fas fa-volume-up"></i>
+                        <span>استمع</span>
+                    </button>
+                </div>
 
-  <button onclick="playSound()">🔊 استمع</button>
-  <button onclick="startRecording()">🎤 سجل صوتك</button>
+                <div class="practice-section">
+                    <div class="recording-status" id="statusText">اضغط على الميكروفون وابدأ التحدث</div>
+                    
+                    <button id="recordBtn" class="btn btn-primary btn-record">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    
+                    <div class="feedback-area" id="feedbackArea">
+                        <!-- Feedback will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
 
-  <p id="result"></p>
+            <div class="navigation-controls">
+                <button id="prevBtn" class="btn btn-nav" disabled>
+                    <i class="fas fa-arrow-right"></i>
+                    <span>السابق</span>
+                </button>
+                <button id="nextBtn" class="btn btn-nav">
+                    <span>التالي</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </main>
 
-  <script src="script.js"></script>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 منصة تعلم النطق الفرنسي - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
